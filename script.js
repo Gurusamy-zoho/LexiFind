@@ -30,14 +30,14 @@ document.getElementById("btn").addEventListener('click', function() {
             let meaningStoreVariable = "";
                 for (let j = 0; j < data.meanings.length; j++) {
                     let meaning = data.meanings[j];
-                    meaningStoreVariable += `<p>${meaning.partOfSpeech}</p>`;
+                    meaningStoreVariable += `<p style="font-size:20px;text-decoration:underline;"><strong>${meaning.partOfSpeech}</strong></p>`;
 
                     for (let k = 0; k < meaning.definitions.length; k++) {
                         let definition = meaning.definitions[k];
-                        meaningStoreVariable += `<p>${definition.definition}</p>`;
+                        meaningStoreVariable += `<p>󠁯•󠁏󠁏 ${definition.definition}</u>`;
 
                         if (definition.example) {
-                            meaningStoreVariable += `<p>Example: ${definition.example}</p>`;
+                            meaningStoreVariable += `<p style="font-style:Italic;color:grey">Example: ${definition.example}</p>`;
                         }
                     }
                 }
@@ -53,15 +53,17 @@ document.getElementById("btn").addEventListener('click', function() {
             let sourceStoreVariable = "";
                 if (data.sourceUrls) { 
                     for (let m = 0; m < data.sourceUrls.length; m++) {
-                        sourceStoreVariable += `<p>Source: <a href="${data.sourceUrls[m]}" target="_blank">${data.sourceUrls[m]}</a></p>`;
+                        sourceStoreVariable += `<a id="link" href="${data.sourceUrls[m]}" target="_blank">Readmore:</a>`;
                     }
                 }
 
             separateCard.innerHTML = `
-                    <h3>${data.word}</h3>
+                    <div id="Datacard">
+                    <h3 style="font-size:25px">${data.word}</h3>
                     ${phoneticsStoreVariable}
                     ${meaningStoreVariable}
                     ${sourceStoreVariable}
+                    </div>
                 `;
 
             resultDiv.appendChild(separateCard);
