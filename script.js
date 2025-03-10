@@ -54,6 +54,7 @@ document.getElementById("btn").addEventListener('click', function() {
                 if (data.sourceUrls) { 
                     for (let m = 0; m < data.sourceUrls.length; m++) {
                         sourceStoreVariable += `<a id="link" href="${data.sourceUrls[m]}" target="_blank">Readmore:</a>`;
+                        break;
                     }
                 }
 
