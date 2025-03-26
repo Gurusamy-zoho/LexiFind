@@ -3,7 +3,21 @@
 document.getElementById("btn").addEventListener('click', function() {
     let value = document.getElementById("inputBox").value.trim().replace(/\s+/g, "");  
     if (!value) {
-        alert("Please enter a valid word");
+        Swal.fire({
+            title: 'Error',
+            html: `Invalid Input`,
+            icon: 'error',
+            confirmButtonText: 'Ok',
+            timer: 3000,
+            position: 'center',
+            heightAuto: false,
+            showClass: {
+                popup: 'animate__animated animate__fadeInDown'
+            },
+            hideClass: {
+                popup: 'animate__animated animate__fadeOutUp'
+            }
+        });
         return;
     }
     if (!/^[A-Za-z]+$/.test(value)) {
@@ -76,3 +90,5 @@ document.getElementById("btn").addEventListener('click', function() {
 
     xhr.send(); 
 });
+
+
