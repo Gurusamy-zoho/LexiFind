@@ -5,8 +5,8 @@ document.getElementById("btn").addEventListener('click', function() {
     if (!value) {
         Swal.fire({
             title: 'Error',
-            html: `Invalid Input`,
-            icon: 'error',
+            html: `Input is empty`,
+            icon: 'info',
             confirmButtonText: 'Ok',
             timer: 3000,
             position: 'center',
@@ -21,7 +21,21 @@ document.getElementById("btn").addEventListener('click', function() {
         return;
     }
     if (!/^[A-Za-z]+$/.test(value)) {
-        alert("Please enter a valid word with only alphabets.");
+        Swal.fire({
+            title: 'Error',
+            html: `Invalid Input`,
+            icon: 'error',
+            confirmButtonText: 'Ok',
+            timer: 3000,
+            position: 'center',
+            heightAuto: false,
+            showClass: {
+                popup: 'animate__animated animate__fadeInDown'
+            },
+            hideClass: {
+                popup: 'animate__animated animate__fadeOutUp'
+            }
+        });
         return;
     }
 
